@@ -1,0 +1,185 @@
+:root {
+  --bg: #071827;
+  --panel: rgba(255, 255, 255, 0.04);
+  --accent: #06b6d4;
+  --text: #d8f0ff;
+  --muted: #8ba3b6;
+  --card: #0c2733;
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg), #00121b);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+#app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* HEADER */
+header h1 {
+  text-align: center;
+  margin: 0 0 16px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+/* MAIN LAYOUT */
+main {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+#controls {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* PANELS */
+.panel {
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 6px 20px var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.panel h2 {
+  font-size: 15px;
+  color: var(--accent);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+/* TABLE */
+#procTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#procTable th, #procTable td {
+  padding: 6px;
+  color: var(--text);
+  text-align: center;
+}
+
+#procTable tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+#procTable input {
+  width: 70px;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  text-align: center;
+}
+
+/* BUTTONS */
+button {
+  background: var(--accent);
+  color: #00131a;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #089ab3;
+  transform: translateY(-1px);
+}
+
+.controlsRow, .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+/* TIMELINE SLIDER */
+.timelineRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input[type=range] {
+  flex: 1;
+}
+
+/* STATS */
+.stats p {
+  margin: 4px 0;
+  color: var(--text);
+}
+
+#visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* CANVAS */
+canvas {
+  width: 100%;
+  height: 720px;
+  border-radius: 12px;
+  background: linear-gradient(to bottom right, #01121e, #062634);
+  box-shadow: 0 10px 35px var(--shadow);
+  display: block;
+  margin-top: 10px;
+  padding: 0;
+}
+
+/* FOOTER */
+footer {
+  text-align: right;
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+footer small {
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 999px) {
+  main {
+    flex-direction: column;
+  }
+
+  #controls {
+    width: 100%;
+    order: 2;
+  }
+
+  #visual {
+    order: 1;
+  }
+
+  canvas {
+    height: 600px;
+  }
+}

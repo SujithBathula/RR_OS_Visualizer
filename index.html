@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RR OS Visualizer — Round Robin (Animated + Clean)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header><h1>RR OS Visualizer — Round Robin Scheduling</h1></header>
+    <main>
+      <aside id="controls">
+        <div class="panel">
+          <h2>Processes</h2>
+          <table id="procTable">
+            <thead><tr><th>#</th><th>Arrival</th><th>Burst</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <div class="row">
+            <button id="addProcBtn">+ Add Process</button>
+            <button id="clearProcsBtn">Clear</button>
+            <button id="loadPdfExampleBtn">Load Example</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Parameters</h2>
+          <div class="row">
+            <label>Quantum: <input id="quantum" type="number" min="1" value="2"></label>
+            <label>Speed: <input id="speed" type="range" min="0.25" max="3" step="0.25" value="1"><span id="speedLabel">1x</span></label>
+          </div>
+          <div class="row controlsRow">
+            <button id="generateBtn">Generate</button>
+            <button id="playPauseBtn">Play</button>
+            <button id="stepBackBtn">⟲</button>
+            <button id="stepFwdBtn">Step →</button>
+            <button id="resetBtn">Reset</button>
+          </div>
+          <div class="row timelineRow">
+            <input id="timeline" type="range" min="0" max="0" value="0">
+            <span id="timeLabel">Step: 0 / 0</span>
+          </div>
+        </div>
+
+        <div class="panel stats">
+          <h2>Statistics</h2>
+          <div id="statsContent">
+            <p>Total Time: <span id="statTotal">—</span></p>
+            <p>CPU Busy Time: <span id="statBusy">—</span></p>
+            <p>CPU Idle Time: <span id="statIdle">—</span></p>
+            <p>Average Turnaround: <span id="statTurn">—</span></p>
+            <p>Average Waiting: <span id="statWait">—</span></p>
+          </div>
+          <div class="row">
+            <button id="screenshotBtn">Screenshot</button>
+            <button id="exportTraceBtn">Export Trace</button>
+          </div>
+        </div>
+      </aside>
+
+      <section id="visual">
+        <canvas id="canvas" width="1200" height="640" tabindex="0"></canvas>
+      </section>
+    </main>
+    <footer><small>Standalone client-side </small></footer>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
